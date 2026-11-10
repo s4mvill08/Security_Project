@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Panel de métricas y análisis de seguridad de SENTINEL.">
+  <title>Métricas | SENTINEL</title>
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <div class="site-layout">
+    <aside class="site-sidebar">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span><span class="brand-name">SENTINEL</span><span class="brand-caption">Consola de operaciones SOC</span></span>
+      </a>
+      <p class="nav-caption">Espacio de trabajo</p>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="../index.html"><span class="nav-icon" aria-hidden="true">⌂</span>Solicitudes</a>
+        <a href="../index.html#loginPanel"><span class="nav-icon" aria-hidden="true">＋</span>Reportar solicitud</a>
+        <a href="code.html" aria-current="page"><span class="nav-icon" aria-hidden="true">▥</span>Métricas</a>
+        <a href="../sentinel_ayuda_y_base_de_conocimiento/code.html"><span class="nav-icon" aria-hidden="true">?</span>Centro de ayuda</a>
+      </nav>
+      <div class="sidebar-note">
+        <strong>Vista analítica</strong>
+        <p>Consulta los indicadores de referencia del panel y navega a tus solicitudes cuando necesites más detalle.</p>
+      </div>
+    </aside>
+
+    <div class="site-main">
+      <header class="topbar">
+        <div class="breadcrumb">SENTINEL <span aria-hidden="true">/</span> <strong>Métricas</strong></div>
+        <div class="topbar-status"><span class="status-dot"></span> Panel de análisis</div>
+      </header>
+
+      <main class="content">
+        <section class="page-heading">
+          <div>
+            <p class="eyebrow">Telemetría SecOps</p>
+            <h1>Métricas y análisis</h1>
+            <p class="page-description">Resumen visual de tiempos de respuesta, prioridades y tendencias de operación.</p>
+          </div>
+          <button class="button button-primary" id="exportCsv" type="button">↓ Descargar CSV</button>
+        </section>
+
+        <div class="section-heading"><span class="section-hint">Periodo de referencia: últimos 7 días</span></div>
+
+        <section class="metric-grid section" aria-label="Indicadores clave">
+          <article class="card metric-card">
+            <span class="metric-label">Eficacia global</span>
+            <p class="metric-value">94.2%</p>
+            <span class="metric-trend">↑ 3.1% frente al mes anterior</span>
+            <div class="metric-bar"><span style="width:94.2%"></span></div>
+          </article>
+          <article class="card metric-card">
+            <span class="metric-label">Tiempo medio de resolución</span>
+            <p class="metric-value">1 h 14 min</p>
+            <span class="metric-trend">↓ 22 min frente al periodo anterior</span>
+            <div class="metric-bar"><span style="width:72%"></span></div>
+          </article>
+          <article class="card metric-card">
+            <span class="metric-label">Tiempo medio de detección</span>
+            <p class="metric-value">4.8 min</p>
+            <span class="metric-trend">Objetivo de referencia: menos de 10 min</span>
+            <div class="metric-bar"><span style="width:48%"></span></div>
+          </article>
+          <article class="card metric-card">
+            <span class="metric-label">Incidentes críticos mitigados</span>
+            <p class="metric-value">100%</p>
+            <span class="metric-trend">0 incidentes críticos activos</span>
+            <div class="metric-bar"><span style="width:100%"></span></div>
+          </article>
+        </section>
+
+        <div class="analytics-grid section">
+          <section class="card chart-card">
+            <div class="chart-head">
+              <div><h2>Tendencia de incidentes</h2><p>Reportados frente a resueltos</p></div>
+              <span class="section-hint">Últimos 7 días</span>
+            </div>
+            <svg class="chart" viewBox="0 0 700 190" role="img" aria-label="Gráfico ilustrativo de tendencia de incidentes reportados y resueltos">
+              <line class="chart-grid" x1="25" y1="35" x2="680" y2="35"></line>
+              <line class="chart-grid" x1="25" y1="90" x2="680" y2="90"></line>
+              <line class="chart-grid" x1="25" y1="145" x2="680" y2="145"></line>
+              <polyline class="chart-line" points="25,118 130,95 235,125 340,62 445,84 550,53 680,68"></polyline>
+              <polyline class="chart-line-secondary" points="25,140 130,126 235,132 340,94 445,110 550,86 680,79"></polyline>
+              <circle cx="550" cy="53" r="5" fill="#82b8ff"></circle>
+            </svg>
+            <div class="chart-labels"><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Hoy</span></div>
+          </section>
+
+          <section class="card chart-card">
+            <div class="chart-head"><div><h2>Vectores de amenaza</h2><p>Distribución de referencia</p></div></div>
+            <div class="vector-list">
+              <div><div class="vector-line"><span>Phishing y suplantación</span><strong>42%</strong></div><div class="vector-track"><span style="width:42%"></span></div></div>
+              <div><div class="vector-line"><span>Malware y ransomware</span><strong>25%</strong></div><div class="vector-track"><span style="width:25%"></span></div></div>
+              <div><div class="vector-line"><span>Acceso no autorizado</span><strong>18%</strong></div><div class="vector-track"><span style="width:18%"></span></div></div>
+              <div><div class="vector-line"><span>Fuga de información</span><strong>10%</strong></div><div class="vector-track"><span style="width:10%"></span></div></div>
+              <div><div class="vector-line"><span>Otros</span><strong>5%</strong></div><div class="vector-track"><span style="width:5%"></span></div></div>
+            </div>
+          </section>
+        </div>
+
+        <div class="demo-note"><strong>Datos de demostración.</strong> Estos indicadores son ilustrativos y todavía no se calculan a partir de las solicitudes de tu cuenta.</div>
+        <footer class="site-footer">SENTINEL · Métricas de referencia del centro de operaciones de seguridad.</footer>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector("#exportCsv").addEventListener("click", () => {
+      const rows = [
+        ["Indicador", "Valor"],
+        ["Eficacia global", "94.2%"],
+        ["Tiempo medio de resolución", "1 h 14 min"],
+        ["Tiempo medio de detección", "4.8 min"],
+        ["Incidentes críticos mitigados", "100%"],
+      ];
+      const csv = rows.map((row) => row.map((cell) => `"${cell.replaceAll('"', '""')}"`).join(",")).join("\r\n");
+      const url = URL.createObjectURL(new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8" }));
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "sentinel-metricas.csv";
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>

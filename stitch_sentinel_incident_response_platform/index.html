@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Panel sencillo para administrar incidentes de seguridad.">
+  <title>SENTINEL | Incidentes</title>
+  <link rel="stylesheet" href="site.css">
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, "Segoe UI", sans-serif;
+      background: #0b1322;
+      color: #dbe2f8;
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: #0b1322;
+    }
+
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+
+    .page { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 0;
+      border-bottom: 1px solid #2d3545;
+    }
+
+    h1, h2, p { margin-top: 0; }
+    h1 { margin-bottom: 4px; font-size: 1.5rem; }
+    h2 { margin-bottom: 8px; font-size: 1.1rem; }
+    .muted { color: #aab4ca; }
+    .small { font-size: .85rem; }
+    .panel {
+      margin: 24px 0;
+      padding: 20px;
+      border: 1px solid #2d3545;
+      border-radius: 12px;
+      background: #141c2b;
+    }
+
+    .setup { border-color: #775c27; background: #252114; }
+    .setup code { color: #f5c46b; }
+    .hidden { display: none !important; }
+
+    .site-nav {
+      display: grid;
+      gap: 6px;
+      overflow: visible;
+      padding: 0;
+      border: 0;
+    }
+    .site-nav a {
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: #aab4ca;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .site-nav a[aria-current="page"], .site-nav a:hover {
+      background: #222a3a;
+      color: #dbe2f8;
+    }
+    .welcome-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; }
+    .welcome-card { padding: 24px; }
+    .welcome-card h2 { font-size: 1.35rem; }
+    .welcome-links { display: grid; gap: 10px; align-content: start; }
+    .welcome-link { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px; border: 1px solid #2d394d; border-radius: 9px; color: #c8d8ee; text-decoration: none; }
+    .welcome-link:hover { border-color: #52739b; background: #182438; }
+
+    .row { display: flex; align-items: center; gap: 12px; }
+    .row-between { justify-content: space-between; }
+    .wrap { flex-wrap: wrap; }
+    .stack { display: grid; gap: 14px; }
+
+    .button {
+      min-height: 40px;
+      padding: 9px 14px;
+      border: 1px solid #46536b;
+      border-radius: 8px;
+      background: #222a3a;
+      color: #dbe2f8;
+    }
+    .button:hover { background: #303b50; }
+    .button-primary {
+      border-color: #3791ff;
+      background: #3791ff;
+      color: #071629;
+      font-weight: 700;
+    }
+    .button-danger { border-color: #a53b42; color: #ffb4ab; }
+    .button-small { min-height: 34px; padding: 6px 9px; font-size: .85rem; }
+
+    .message {
+      margin: 16px 0;
+      padding: 12px;
+      border-radius: 8px;
+      background: #222a3a;
+    }
+    .message.error { color: #ffdad6; background: #4a2026; }
+    .message.success { color: #b7f5d6; background: #12392e; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .field { display: grid; gap: 6px; }
+    .field-full { grid-column: 1 / -1; }
+    label { color: #c1c6d5; font-size: .9rem; }
+    .password-control { display: flex; gap: 8px; }
+    .password-control input { flex: 1; min-width: 0; }
+    .toggle-password { min-width: 82px; padding: 8px 12px; }
+    input, select, textarea {
+      width: 100%;
+      min-height: 42px;
+      padding: 9px 11px;
+      border: 1px solid #46536b;
+      border-radius: 7px;
+      background: #0b1322;
+      color: #dbe2f8;
+    }
+    textarea { min-height: 100px; resize: vertical; }
+    input:focus, select:focus, textarea:focus, button:focus-visible {
+      outline: 2px solid #a8c8ff;
+      outline-offset: 2px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 22px 0;
+    }
+    .metric {
+      padding: 16px;
+      border: 1px solid #2d3545;
+      border-radius: 10px;
+      background: #141c2b;
+    }
+    .metric strong { display: block; margin-top: 5px; font-size: 1.6rem; }
+
+    .filters { display: flex; gap: 10px; }
+    .filters input { flex: 1; }
+
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th, td { padding: 12px 10px; border-bottom: 1px solid #2d3545; vertical-align: middle; }
+    th { color: #aab4ca; font-size: .82rem; font-weight: 600; }
+    td { font-size: .92rem; }
+    .actions { display: flex; gap: 6px; white-space: nowrap; }
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #303b50;
+      font-size: .78rem;
+      white-space: nowrap;
+    }
+    .badge-critica { color: #ffb4ab; background: #4a2026; }
+    .badge-alta { color: #ffd18b; background: #44351e; }
+    .badge-media { color: #d6e3ff; background: #203851; }
+    .badge-baja { color: #b7f5d6; background: #12392e; }
+    .empty { padding: 24px 10px; text-align: center; color: #aab4ca; }
+
+    dialog {
+      width: min(640px, calc(100% - 24px));
+      max-height: 90vh;
+      padding: 0;
+      overflow: auto;
+      border: 1px solid #46536b;
+      border-radius: 12px;
+      background: #141c2b;
+      color: #dbe2f8;
+    }
+    dialog::backdrop { background: rgb(0 0 0 / 70%); }
+    .dialog-content { padding: 22px; }
+    .dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+    @media (max-width: 700px) {
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .filters { flex-direction: column; }
+      header { align-items: flex-start; }
+      .panel { padding: 16px; }
+      .site-nav { display: flex; gap: 4px; overflow-x: auto; padding-bottom: 10px; }
+      .site-nav a { min-height: 40px; flex: 0 0 auto; padding: 0 10px; }
+    }
+    @media (max-width: 480px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .field-full { grid-column: auto; }
+      .page { width: min(100% - 20px, 1120px); }
+      .welcome-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-layout">
+    <aside class="site-sidebar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span><span class="brand-name">SENTINEL</span><span class="brand-caption">Consola de operaciones SOC</span></span>
+      </a>
+      <p class="nav-caption">Espacio de trabajo</p>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="#solicitudes" data-app-view="requests" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span>Solicitudes</a>
+        <a class="hidden" id="diagnosticsNavigationLink" href="#diagnostico" data-app-view="diagnostics"><span class="nav-icon" aria-hidden="true">⌕</span>Diagnóstico</a>
+        <a id="reportNavigationLink" href="#loginPanel"><span class="nav-icon" aria-hidden="true">＋</span>Reportar solicitud</a>
+        <a href="sentinel_estad_sticas_y_m_tricas/code.html"><span class="nav-icon" aria-hidden="true">▥</span>Métricas</a>
+        <a href="sentinel_ayuda_y_base_de_conocimiento/code.html"><span class="nav-icon" aria-hidden="true">?</span>Centro de ayuda</a>
+      </nav>
+      <div class="sidebar-note">
+        <strong>Tu espacio de solicitudes</strong>
+        <p>Inicia sesión para consultar y administrar tus reportes de forma segura.</p>
+      </div>
+    </aside>
+    <div class="site-main">
+      <div class="page">
+    <header class="topbar">
+      <div>
+        <h1>SENTINEL · Incidentes</h1>
+        <p class="muted small" style="margin-bottom:0">Panel de práctica para el equipo SOC</p>
+      </div>
+      <button class="button hidden" id="logoutButton" type="button">Cerrar sesión</button>
+    </header>
+
+    <div class="panel setup hidden" id="setupMessage" role="status">
+      <h2>Antes de empezar: conecta tu proyecto Supabase</h2>
+      <p>Abre <code>app.js</code> y reemplaza <code>SUPABASE_URL</code> y <code>SUPABASE_ANON_KEY</code>
+        con los valores de tu proyecto. Para una instalación nueva, ejecuta <code>supabase.sql</code> desde el editor SQL de Supabase.
+        Si ya tienes las tablas creadas, ejecuta <code>supabase_requests_migration.sql</code>.</p>
+      <p class="small">Usa la clave pública (anon/publishable), nunca la clave secreta de servicio en el navegador.</p>
+    </div>
+
+    <section class="welcome-grid" id="welcomePanel">
+      <div class="panel welcome-card">
+        <p class="eyebrow">Centro de operaciones de seguridad</p>
+        <h2>Reporta y administra tus solicitudes</h2>
+        <p class="muted">Consulta recursos del sitio sin iniciar sesión. Para crear, editar o eliminar tus propios reportes, regístrate o inicia sesión.</p>
+        <a class="button button-primary" href="#loginPanel">Ingresar o crear cuenta</a>
+      </div>
+      <div class="welcome-links" aria-label="Accesos rápidos">
+        <a class="welcome-link" href="sentinel_estad_sticas_y_m_tricas/code.html"><span>Métricas y análisis</span><span aria-hidden="true">→</span></a>
+        <a class="welcome-link" href="sentinel_ayuda_y_base_de_conocimiento/code.html"><span>Guías y centro de ayuda</span><span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="loginPanel">
+      <h2>Regístrate o inicia sesión</h2>
+      <p class="muted small">Puedes navegar por el sitio sin cuenta. Para crear y administrar tus solicitudes, inicia sesión o crea una cuenta.</p>
+      <form class="stack" id="loginForm">
+        <div class="field">
+          <label for="email">Correo</label>
+          <input id="email" name="email" type="email" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="password">Contraseña</label>
+          <div class="password-control">
+            <input id="password" name="password" type="password" autocomplete="current-password" minlength="6" required>
+            <button class="button toggle-password" id="togglePassword" type="button" aria-controls="password" aria-pressed="false">Mostrar</button>
+          </div>
+        </div>
+        <div class="row wrap">
+          <button class="button button-primary" type="submit">Entrar</button>
+          <button class="button" id="signupButton" type="button">Crear cuenta</button>
+        </div>
+      </form>
+    </section>
+
+    <p class="message hidden" id="message" role="status" aria-live="polite"></p>
+
+    <main class="hidden" id="appPanel">
+      <section id="requestsView" data-app-panel>
+      <section class="metrics" aria-label="Resumen de incidentes">
+        <div class="metric"><span class="muted small">Total</span><strong id="totalCount">0</strong></div>
+        <div class="metric"><span class="muted small">Abiertos</span><strong id="openCount">0</strong></div>
+        <div class="metric"><span class="muted small">En progreso</span><strong id="progressCount">0</strong></div>
+        <div class="metric"><span class="muted small">Críticos</span><strong id="criticalCount">0</strong></div>
+      </section>
+
+      <section class="panel">
+        <div class="row row-between wrap" style="margin-bottom:16px">
+          <div>
+            <h2>Mis solicitudes</h2>
+            <p class="muted small" style="margin-bottom:0">Solo tú puedes consultar y administrar las solicitudes que registraste.</p>
+          </div>
+          <button class="button button-primary" id="newIncidentButton" type="button">+ Nueva solicitud</button>
+        </div>
+        <div class="filters" style="margin-bottom:14px">
+          <input aria-label="Buscar incidentes" id="searchInput" placeholder="Buscar por código, título o descripción">
+          <select aria-label="Filtrar por estado" id="statusFilter">
+            <option value="">Todos los estados</option>
+            <option value="abierto">Abierto</option>
+            <option value="en_progreso">En progreso</option>
+            <option value="contenido">Contenido</option>
+            <option value="resuelto">Resuelto</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Código / Título</th><th>Severidad</th><th>Estado</th><th>Fecha</th><th>Acciones</th></tr>
+            </thead>
+            <tbody id="incidentRows"></tbody>
+          </table>
+        </div>
+        <p class="empty hidden" id="emptyMessage">Todavía no tienes solicitudes registradas.</p>
+      </section>
+      </section>
+
+      <section class="hidden" id="diagnosticsView" data-app-panel>
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Mesa de análisis</p>
+            <h1>Diagnóstico de incidentes</h1>
+            <p class="page-description">Revisa los reportes, identifica la causa y registra la clasificación y las acciones de seguimiento.</p>
+          </div>
+          <span class="section-hint" id="diagnosticsSummary">Cargando casos...</span>
+        </div>
+        <div class="panel">
+          <div class="filters" style="margin-bottom:14px">
+            <input aria-label="Buscar solicitudes para diagnóstico" id="diagnosticSearch" placeholder="Buscar por código, título o descripción">
+            <select aria-label="Filtrar casos por estado" id="diagnosticStatusFilter">
+              <option value="">Todos los estados</option>
+              <option value="abierto">Abierto</option>
+              <option value="en_progreso">En progreso</option>
+              <option value="contenido">Contenido</option>
+              <option value="resuelto">Resuelto</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Caso / Reporte</th><th>Prioridad</th><th>Categoría</th><th>Estado</th><th>Actualizado</th><th>Diagnóstico</th><th>Acción</th></tr>
+              </thead>
+              <tbody id="diagnosticRows"></tbody>
+            </table>
+          </div>
+          <p class="empty hidden" id="diagnosticEmptyMessage">No hay casos que coincidan con los filtros.</p>
+        </div>
+        <p class="small muted">El panel es privado para cuentas autorizadas. Desde SQL Editor, autoriza una cuenta de Authentication → Users ejecutando <code>insert into public.analyst_access (user_id) values ('UUID-DEL-USUARIO');</code></p>
+      </section>
+    </main>
+      </div>
+    </div>
+  </div>
+
+  <dialog id="incidentDialog">
+    <div class="dialog-content">
+      <h2 id="incidentDialogTitle">Nueva solicitud</h2>
+      <form id="incidentForm">
+        <input id="incidentId" name="incidentId" type="hidden">
+        <div class="form-grid">
+          <div class="field field-full">
+            <label for="title">Título</label>
+            <input id="title" name="title" maxlength="160" required>
+          </div>
+          <div class="field field-full">
+            <label for="description">Descripción</label>
+            <textarea id="description" name="description" maxlength="2000" required></textarea>
+          </div>
+          <div class="field">
+            <label for="severity">Severidad</label>
+            <select id="severity" name="severity" required>
+              <option value="critica">Crítica</option>
+              <option value="alta">Alta</option>
+              <option value="media">Media</option>
+              <option value="baja">Baja</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="source">Origen</label>
+            <input id="source" name="source" maxlength="100" placeholder="Ej.: SIEM, correo, usuario">
+          </div>
+        </div>
+        <div class="dialog-actions">
+          <button class="button" id="cancelIncidentButton" type="button">Cancelar</button>
+          <button class="button button-primary" type="submit">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog id="diagnosticDialog">
+    <div class="dialog-content">
+      <h2>Evaluar reporte</h2>
+      <p class="muted small" id="diagnosticReportCode"></p>
+      <div class="panel" style="margin:14px 0">
+        <strong id="diagnosticReportTitle"></strong>
+        <p id="diagnosticReportDescription" class="muted small" style="margin:8px 0 0"></p>
+      </div>
+      <form id="diagnosticForm">
+        <input id="diagnosticIncidentId" name="incidentId" type="hidden">
+        <div class="form-grid">
+          <div class="field">
+            <label for="diagnosticSeverity">Prioridad</label>
+            <select id="diagnosticSeverity" name="severity" required>
+              <option value="critica">Crítica</option>
+              <option value="alta">Alta</option>
+              <option value="media">Media</option>
+              <option value="baja">Baja</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="diagnosticStatus">Estado</label>
+            <select id="diagnosticStatus" name="status" required>
+              <option value="abierto">Abierto</option>
+              <option value="en_progreso">En progreso</option>
+              <option value="contenido">Contenido</option>
+              <option value="resuelto">Resuelto</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="diagnosticCategory">Tipo de problema</label>
+            <select id="diagnosticCategory" name="problemCategory" required>
+              <option value="">Selecciona una categoría</option>
+              <option value="phishing">Phishing</option>
+              <option value="malware">Malware</option>
+              <option value="acceso_no_autorizado">Acceso no autorizado</option>
+              <option value="fuga_datos">Fuga de datos</option>
+              <option value="disponibilidad">Disponibilidad / servicio</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="diagnosticAssignedAnalyst">Analista asignado</label>
+            <select id="diagnosticAssignedAnalyst" name="assignedAnalyst">
+              <option value="">Sin asignar</option>
+            </select>
+          </div>
+          <div class="field field-full">
+            <label for="diagnosticDiagnosis">Diagnóstico y hallazgos</label>
+            <textarea id="diagnosticDiagnosis" name="diagnosis" maxlength="2000" required placeholder="Documenta la causa identificada, evidencias revisadas y próximos pasos."></textarea>
+          </div>
+        </div>
+        <div class="dialog-actions">
+          <button class="button" id="cancelDiagnosticButton" type="button">Cancelar</button>
+          <button class="button button-primary" type="submit">Guardar diagnóstico</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
