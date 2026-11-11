@@ -1,7 +1,45 @@
-# SECURITY CHAMP
+# SENTINEL
 
-## MANUAL DE USUARIO
+## Manual de usuario
 Gestión · Seguimiento · Trazabilidad
+
+## Aplicación React
+
+La aplicación funcional está organizada en `src/`: `components/` contiene la navegación, autenticación y formularios; `pages/` reúne dashboard, incidentes, seguimiento, analítica y ayuda; `lib/` centraliza Supabase y las operaciones de datos.
+
+### Ejecutar localmente
+
+Requiere Node.js 20 o posterior. Desde esta carpeta:
+
+```powershell
+npm install
+npm run dev
+```
+
+Para generar y probar la versión de producción, ejecuta `npm run build` y después `npm run preview`.
+
+### Conectar Supabase
+
+La aplicación conserva la URL y la clave **publicable** que ya utilizaba el proyecto. Para usar otro proyecto, copia `.env.example` a `.env.local` y reemplaza `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`. No incluyas una clave `service_role` en el frontend.
+
+En un proyecto nuevo ejecuta `supabase.sql`; en una base existente aplica `supabase_requests_migration.sql`. Después, autoriza analistas desde Supabase SQL Editor:
+
+```sql
+insert into public.analyst_access (user_id)
+values ('UUID-DEL-USUARIO');
+```
+
+Las cuentas nuevas se crean con el formulario de acceso y la confirmación de correo depende de la configuración de Authentication en Supabase. Los nombres de `public.analysts` son ejemplos y deben sustituirse por el directorio real.
+
+### Funcionalidades conectadas
+
+- Registro, consulta, edición y eliminación de reportes propios.
+- Inicio de sesión, registro y cierre de sesión con Supabase Auth.
+- Clasificación, asignación, diagnóstico y actualización de estado para analistas autorizados.
+- Búsqueda, filtros, exportación CSV, panel de seguimiento e historial de diagnósticos.
+- Dashboard y métricas calculados con datos permitidos por las políticas RLS; la ayuda está disponible sin sesión.
+
+Las acciones también están restringidas por RLS y por la base de datos. El formulario no adjunta archivos; comparte evidencia sensible solo por los canales aprobados por tu organización.
 
 PROGRAMA: DESARROLLO DE SOFTWARE
 INSTITUCIÓN: COMPUSTUDIO
@@ -23,7 +61,7 @@ Información
 
 Aplicación
 
-SECURITY CHAMP
+SENTINEL
 
 Nombre
 
@@ -31,23 +69,23 @@ Sistema de Gestión de Incidentes de Seguridad
 
 Versión
 
-1.0 – Preliminar
+1.0 – Implementación inicial
 
 Estado
 
-En construcción; pendiente de validación con la aplicación definitiva
+Aplicación React funcional conectada a Supabase; requiere configurar y validar el proyecto de base de datos para cada despliegue.
 
 Público objetivo
 
 Reportantes, técnicos y administradores de empresas y organizaciones
 
 ## 1. Introducción
-Security Champ es una aplicación web de propósito general diseñada para apoyar a empresas y organizaciones de diferentes sectores en la gestión de incidentes de seguridad informática. La plataforma busca centralizar el registro, clasificación, asignación, seguimiento y cierre de incidentes mediante un sistema de tickets.
+SENTINEL es una aplicación web para centralizar el registro, clasificación, asignación y seguimiento de incidentes de seguridad informática.
 
 La solución facilita la coordinación entre quienes reportan incidentes y los responsables de atenderlos, y permite conservar un historial de los casos y de las acciones documentadas.
 
 ### 1.1 Propósito del manual
-Orientar a personas sin conocimientos de programación en el uso de Security Champ mediante instrucciones claras y procedimientos sencillos. El documento se actualizará para coincidir con las funcionalidades reales de la versión definitiva.
+Orientar a las personas usuarias en el uso de SENTINEL mediante instrucciones claras para registrar, consultar y atender reportes.
 
 ### 1.2 Alcance
 
@@ -77,27 +115,26 @@ Conexión estable a internet, si la aplicación está desplegada en línea.
 
 Acceso
 
-Cuenta y credenciales autorizadas, si se implementa autenticación.
+Cuenta registrada en Supabase Authentication. El acceso a los diagnósticos requiere autorización de analista.
 
 Visualización
 
 Se recomienda una pantalla de computador para facilitar la lectura de formularios y tablas.
 
-Nota: los requisitos definitivos se confirmarán durante las pruebas y al establecer el mecanismo de publicación de la aplicación.
+La aplicación se ejecuta localmente con Node.js y Vite; para consultar o registrar incidentes requiere conexión a Supabase.
 
 ## 3. Acceso al sistema
-Cuando la aplicación esté desplegada y se haya confirmado el mecanismo de autenticación, el usuario deberá:
+Para acceder a los incidentes, el usuario deberá:
 
 1. Abrir un navegador web compatible.
-2. Ingresar al enlace oficial de Security Champ.
+2. Ingresar al enlace oficial de SENTINEL.
 3. Esperar a que cargue la pantalla inicial.
-4. Ingresar sus credenciales, si el sistema solicita autenticación.
-5. Seleccionar la opción para iniciar sesión.
-6. Utilizar las opciones habilitadas para su perfil.
-[CAPTURA PENDIENTE: pantalla real de acceso o inicio de sesión.]
+4. Ingresar sus credenciales o crear una cuenta desde el formulario.
+5. Confirmar el correo si Authentication lo requiere y luego iniciar sesión.
+6. Utilizar las opciones habilitadas para su perfil. El centro de ayuda está disponible sin sesión.
 
 ## 4. Interfaz principal
-La interfaz principal será el punto de entrada a los módulos disponibles. La organización final de menús, botones y paneles se documentará después de implementar y validar la interfaz.
+La interfaz principal reúne los siguientes módulos:
 
 - Panel principal o dashboard.
 - Gestión y consulta de tickets.
@@ -105,17 +142,19 @@ La interfaz principal será el punto de entrada a los módulos disponibles. La o
 - Asignación de responsables.
 - Seguimiento y resolución.
 - Historial de incidentes.
-- Administración de usuarios, si está implementada.
-[CAPTURA PENDIENTE: dashboard real con menús y elementos identificados.]
+- Centro de ayuda y orientación de severidad.
+- Estadísticas calculadas a partir de los reportes visibles.
+
+El registro no permite adjuntar archivos. Las métricas se calculan sobre los incidentes que las políticas RLS permiten consultar.
 
 ## 5. Perfiles de usuario
 
 ### 5.1 Administrador
-Perfil encargado de la administración general de la plataforma, de acuerdo con los permisos implementados.
+El administrador configura cuentas, roles y directorios desde Supabase; la aplicación no incluye una pantalla administrativa independiente.
 
-- Gestionar usuarios y permisos, si está habilitado.
-- Administrar áreas y especialidades, si está habilitado.
-- Consultar y supervisar los incidentes registrados.
+- Autorizar analistas en `public.analyst_access`.
+- Mantener los responsables asignables en `public.analysts`.
+- Configurar Supabase Authentication y las políticas de acceso.
 
 ### 5.2 Reportante
 Persona que informa una situación de seguridad y consulta el avance de sus reportes.
@@ -125,102 +164,77 @@ Persona que informa una situación de seguridad y consulta el avance de sus repo
 - Ampliar información cuando el proceso lo permita.
 
 ### 5.3 Técnico de seguridad
-Persona responsable de atender los incidentes que le sean asignados.
-
-- Consultar tickets asignados.
-- Registrar avances y observaciones.
-- Documentar acciones realizadas y soluciones.
-- Actualizar el estado del ticket según sus permisos.
-Nota: estos perfiles son la propuesta funcional inicial. Los permisos definitivos deberán coincidir con la implementación.
+La implementación actual no tiene un perfil técnico separado. Las funciones de atención y actualización descritas aquí requieren una cuenta autorizada como analista.
+Los permisos se aplican en el frontend y se hacen cumplir en la base de datos mediante RLS.
 
 ### 5.4 Analista autorizado
-El menú **Diagnóstico** solo aparece para cuentas incluidas por un administrador en `public.analyst_access`. En un proyecto nuevo, ejecuta `supabase.sql`; en una base existente, aplica `supabase_requests_migration.sql`. Después, desde el SQL Editor de Supabase, autoriza cada cuenta usando su UUID de Authentication → Users:
+Las acciones de diagnóstico aparecen para cuentas incluidas por un administrador en `public.analyst_access`. En un proyecto nuevo, ejecuta `supabase.sql`; en una base existente, aplica `supabase_requests_migration.sql`. Después, desde el SQL Editor de Supabase, autoriza cada cuenta usando su UUID de Authentication → Users:
 
 ```sql
 insert into public.analyst_access (user_id)
 values ('UUID-DEL-USUARIO');
 ```
 
-Los analistas autorizados pueden revisar todos los reportes, clasificar el incidente, registrar el diagnóstico, asignar un responsable y actualizar su estado. Los reportantes pueden consultar, editar los datos descriptivos y eliminar sus propios reportes, pero no pueden cambiar el estado ni el diagnóstico. Los responsables asignables provienen de `public.analysts`; los nombres incluidos en el SQL inicial son ejemplos y deben reemplazarse por el directorio real.
+Los analistas autorizados pueden revisar los reportes visibles por RLS, clasificar el incidente, registrar el diagnóstico, asignar un responsable y actualizar su estado. Los reportantes pueden consultar, editar los datos descriptivos y eliminar sus propios reportes, pero no pueden cambiar el estado ni el diagnóstico. Los responsables asignables provienen de `public.analysts`; los nombres incluidos en el SQL inicial son ejemplos y deben reemplazarse por el directorio real.
 
 ## 6. Funcionalidades del sistema
 
 ### 6.1 Registro de incidentes
 Permite reportar una situación que pueda afectar la seguridad de la información o la disponibilidad de un servicio.
 
-1. Ingresar a la plataforma.
-2. Seleccionar la opción de nuevo incidente.
-3. Completar los campos solicitados.
-4. Elegir la categoría correspondiente.
-5. Describir la situación con claridad.
-6. Adjuntar evidencias, si la función está disponible.
-7. Confirmar el registro.
-[CAPTURA PENDIENTE: formulario real de registro y confirmación del ticket.]
+1. Iniciar sesión.
+2. Seleccionar **Registrar incidente**.
+3. Completar el título, la severidad inicial y la descripción; el origen es opcional.
+4. Confirmar el registro y conservar el código generado.
+
+La categoría, asignación y diagnóstico los registra después un analista autorizado. La carga de archivos no está implementada.
 
 ### 6.2 Clasificación de incidentes
-Permite organizar los reportes según su naturaleza para facilitar su atención.
+Los analistas autorizados pueden organizar los reportes según su naturaleza para facilitar su atención.
 
-- Vulnerabilidades de seguridad.
-- Accesos no autorizados.
-- Ataques informáticos.
-- Caídas o interrupciones de servicios.
-- Filtraciones de información.
-- Otros incidentes tecnológicos.
-[CAPTURA PENDIENTE: categorías disponibles en la aplicación.]
+Las categorías disponibles son phishing, malware, acceso no autorizado, fuga de datos, disponibilidad y otro.
 
 ### 6.3 Asignación de tickets
-Permite dirigir un incidente al área o responsable que corresponda, de acuerdo con las especialidades configuradas.
+Permite dirigir un incidente a un responsable disponible en `public.analysts`.
 
-1. Abrir el módulo de gestión de tickets.
-2. Seleccionar el incidente.
-3. Revisar su descripción y clasificación.
-4. Elegir el área o responsable disponible.
-5. Confirmar la asignación.
-[CAPTURA PENDIENTE: pantalla real de asignación.]
+1. Abrir **Incidentes** y seleccionar el reporte.
+2. Revisar su descripción y clasificación.
+3. Elegir un responsable de la lista configurada en Supabase.
+4. Guardar los cambios desde el panel de analista del detalle.
 
 ### 6.4 Seguimiento de incidentes
-Permite consultar el avance de cada caso y registrar actualizaciones.
+Permite consultar el estado, los datos y las entradas de diagnóstico guardadas para cada caso.
 
 1. Abrir el ticket que se desea consultar.
 2. Revisar el estado y los datos del incidente.
-3. Registrar avances u observaciones, si el perfil tiene permiso.
-4. Guardar los cambios.
-[CAPTURA PENDIENTE: vista de seguimiento y estados reales.]
+3. Si eres analista autorizado, actualiza el diagnóstico, la prioridad, la categoría, el responsable o el estado.
+4. Guarda los cambios para añadir la entrada de diagnóstico al historial.
 
 ### 6.5 Solución y cierre
-Permite documentar las acciones realizadas y finalizar el ticket cuando se haya completado la atención.
+Un analista autorizado puede documentar los hallazgos y cambiar el estado a resuelto cuando corresponda.
 
-1. Abrir el ticket asignado.
+1. Abrir el incidente desde **Incidentes**.
 2. Revisar la información del incidente.
-3. Registrar las acciones ejecutadas.
-4. Documentar la solución aplicada.
-5. Actualizar el estado correspondiente.
-6. Confirmar el cierre, si el perfil tiene permiso.
-[CAPTURA PENDIENTE: registro de solución y cierre.]
+3. Escribir los hallazgos o acciones en el diagnóstico.
+4. Seleccionar el estado correspondiente y guardar los cambios.
 
 ### 6.6 Historial de incidentes
-Permite consultar los casos registrados y la información conservada de su atención.
+Permite consultar los incidentes y el historial de diagnósticos guardado durante su atención.
 
-1. Ingresar al módulo de historial, si está disponible.
-2. Aplicar filtros de búsqueda, si existen.
-3. Seleccionar el incidente que se desea consultar.
-4. Revisar los datos y las acciones documentadas.
-[CAPTURA PENDIENTE: historial real y detalle de un incidente.]
+1. Abrir **Incidentes** y buscar o filtrar el caso.
+2. Seleccionar el código para abrir **Seguimiento**.
+3. Consultar sus datos, estado, responsable, diagnóstico e historial disponible.
 
 ## 7. Ejemplo práctico
 
 ### Caso: posible acceso no autorizado
 Situación de ejemplo: una persona usuaria detecta actividad sospechosa en una cuenta corporativa y necesita informar el caso al equipo responsable.
 
-1. Ingresar a Security Champ.
-2. Crear un nuevo incidente y seleccionar la categoría de acceso no autorizado, si está disponible.
+1. Ingresar a SENTINEL.
+2. Crear un nuevo incidente y elegir una severidad inicial.
 3. Describir qué ocurrió, cuándo se detectó y qué servicio o cuenta podría estar afectado.
-4. Adjuntar evidencias permitidas por la aplicación, evitando incluir contraseñas o datos sensibles innecesarios.
-5. Enviar el reporte y conservar el identificador del ticket generado.
-6. El responsable autorizado revisa y asigna el caso al especialista correspondiente.
-7. El técnico documenta las acciones realizadas y actualiza el estado.
-8. Al finalizar, registra la solución y cierra el ticket conforme al procedimiento de la organización.
-[CAPTURAS PENDIENTES: registro, asignación, seguimiento y cierre del caso.]
+4. Enviar el reporte y conservar el código generado.
+5. El analista autorizado revisa y clasifica el caso, asigna un responsable, documenta el diagnóstico y actualiza su estado.
 
 ## 8. Problemas frecuentes
 Situación
@@ -247,10 +261,8 @@ No se visualiza el historial
 
 Revisar filtros y rango de búsqueda; solicitar apoyo al administrador si continúa.
 
-Esta sección se completará con los errores observados durante las pruebas reales.
-
 ## 9. Conclusiones y recomendaciones de uso
-Security Champ propone un entorno centralizado para organizar la gestión de incidentes de seguridad informática. Su utilidad depende de que los usuarios registren información clara, mantengan actualizados los tickets y documenten las acciones realizadas.
+SENTINEL ofrece un entorno centralizado para gestionar incidentes de seguridad. Su utilidad depende de que las personas registren información clara, mantengan actualizados los reportes y documenten las acciones realizadas.
 
 - Registrar incidentes con información clara, precisa y oportuna.
 - Seleccionar la categoría que mejor describa la situación.
@@ -269,22 +281,14 @@ Descripción
 
 1.0
 
-Preliminar
+Implementación inicial
 
-Estructura y contenido inicial elaborados durante el desarrollo.
+Manual actualizado para las funciones incluidas en la aplicación React.
 
-1.1
-
-Pendiente
-
-Incorporación de pantallas, nombres definitivos de menús y pasos verificados.
-
-Final
+Validación de despliegue
 
 Pendiente
 
-Validación completa contra la aplicación desplegada y entrega en PDF.
+Configurar y probar Supabase, sus políticas RLS, Authentication y el directorio real de analistas.
 
-Importante: los apartados marcados como pendientes son espacios reservados para capturas reales. No representan funcionalidades confirmadas hasta que hayan sido desarrolladas y probadas.
-
-SECURITY CHAMP | Compuestudio | Desarrollo de Software | 2026
+SENTINEL | Compuestudio | Desarrollo de Software | 2026

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-fixed":"#001b3c","surface-container-lowest":"#010f1f","on-error":"#690005","secondary-fixed":"#76fac4","tertiary-fixed-dim":"#ffb95f","secondary-fixed-dim":"#57dda9","surface-container-high":"#1c2b3c","surface-variant":"#273647","error":"#ffb4ab","surface-container-highest":"#273647","on-secondary-fixed":"#002115","on-tertiary-container":"#3e2400","secondary-container":"#00ab7b","tertiary-fixed":"#ffddb8","inverse-primary":"#005eb4","on-surface":"#d4e4fa","secondary":"#57dda9","on-primary":"#003062","primary":"#a8c8ff","primary-fixed-dim":"#a8c8ff","surface-bright":"#2c3a4c","on-error-container":"#ffdad6","on-tertiary-fixed":"#2a1700","on-surface-variant":"#c1c6d5","surface-container":"#122131","on-primary-fixed-variant":"#00468a","tertiary":"#ffb95f","primary-fixed":"#d6e3ff","on-background":"#d4e4fa","on-secondary-fixed-variant":"#005139","error-container":"#93000a","inverse-on-surface":"#233143","surface-dim":"#051424","primary-container":"#3791ff","on-tertiary-fixed-variant":"#653e00","background":"#051424","surface-container-low":"#0d1c2d","inverse-surface":"#d4e4fa","on-secondary":"#003826","on-tertiary":"#472a00","outline":"#8b919f","surface":"#051424","outline-variant":"#414753","on-secondary-container":"#003624","tertiary-container":"#ca8100","surface-tint":"#a8c8ff","on-primary-container":"#002956"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-desktop":"2rem","space-xs":"0.25rem","space-md":"0.75rem","gutter-tablet":"0.75rem","space-sm":"0.5rem","space-lg":"1.25rem","gutter-desktop":"1.25rem","margin-tablet":"1.5rem","gutter":"1rem","space-xl":"2rem","margin":"1rem"},fontFamily:{"headline-xl-mobile":["Inter"],"label-lg":["JetBrains Mono"],"headline-xl":["Inter"],"body-lg":["Inter"],"headline-lg":["Inter"],"headline-sm":["Inter"],"headline-lg-mobile":["Inter"],"headline-md":["Inter"],"label-sm":["JetBrains Mono"],"body-sm":["Inter"],"body-md":["Inter"],"label-md":["JetBrains Mono"]},fontSize:{"headline-xl-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.02em",fontWeight:"500"}],"headline-xl":["36px",{lineHeight:"44px",letterSpacing:"-0.025em",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-lg-mobile":["22px",{lineHeight:"30px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"500"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-screen w-[260px] bg-surface-container-low border-r border-outline-variant/30 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-[68px] px-space-lg flex items-center gap-space-sm border-b border-outline-variant/20 bg-surface-container-lowest/50"><img alt="SENTINEL Shield Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vswqdv8HDcL3yeEzq3QJx1F76_erhOa_Iu81iT8t4lmGQR3LTTp_Z__AY6V3XX-s2vUn6tsLufEAThm8d5zJMCNZMsvapoo2pXMZhwhJ_6XSOIe2YLgDGXs7znmNhF2nFEZ1X-QLYV17YR-TwjlafxQFyH6VXBI-BOavfL84Cs1n15OvmOpR0tKW0PFIWU9-Qp5Gux91zGwbrFFTcHX-pbvveVuVwz6Hs37g_O-U7w"/><div class="flex flex-col leading-none"><span class="font-headline-sm text-headline-sm text-primary tracking-wide">SENTINEL</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-0.5">SOC &amp; Security Ops</span></div></div><div class="px-space-md pt-space-md"><div class="flex items-center gap-space-sm px-space-sm py-1 bg-surface-container rounded-lg border border-secondary/20 shadow-[0_0_12px_rgba(87,221,169,0.08)]"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">MONITOREO ACTIVO</span></div></div><nav class="flex flex-col gap-1 px-space-xs mt-space-lg" data-active-classes="bg-surface-container-high text-primary font-semibold border-l-2 border-primary-container shadow-inner"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-body-md text-body-md">Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="registrar-incidente" href="#"><span class="material-symbols-outlined text-[20px]">add_circle</span><span class="font-body-md text-body-md">Registrar incidente</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="incidentes" href="#"><span class="material-symbols-outlined text-[20px]">gpp_maybe</span><span class="font-body-md text-body-md">Incidentes</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="seguimiento" href="#"><span class="material-symbols-outlined text-[20px]">timeline</span><span class="font-body-md text-body-md">Seguimiento</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="estadisticas" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span class="font-body-md text-body-md">Estadísticas</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="ayuda" href="#"><span class="material-symbols-outlined text-[20px]">help</span><span class="font-body-md text-body-md">Ayuda</span></a></nav></div><div class="p-space-md border-t border-outline-variant/20 bg-surface-container-lowest/40 flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">DEFCON Status</span><span class="font-label-sm text-label-sm text-secondary bg-surface-container px-1.5 py-0.5 rounded border border-secondary/30">Nivel 5 (Normal)</span></div><div class="flex items-center justify-between text-outline mt-1"><span class="font-label-sm text-label-sm">SOC Enterprise</span><span class="font-label-sm text-label-sm">v2.4.1</span></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-[68px] bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 z-40 px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-md w-96"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-space-sm text-outline text-[18px]">search</span><input class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded px-space-lg py-1.5 pl-8 text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Buscar incidente por código, IP, usuario o CVE..." type="text"/><kbd class="absolute right-space-sm font-label-sm text-label-sm bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded border border-outline-variant/40">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded border border-tertiary-container/40"><span class="material-symbols-outlined text-tertiary text-[18px]">warning</span><span class="font-label-sm text-label-sm text-tertiary font-semibold">INCIDENTES ACTIVOS: 14</span></div><div class="hidden md:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded border border-secondary/30"><span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span><span class="font-label-sm text-label-sm text-on-surface">Red: Protegido</span></div><button class="relative p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-[9px] font-bold">3</span></button><div class="h-6 w-[1px] bg-outline-variant/30"></div><div class="flex items-center gap-space-sm"><div class="flex flex-col text-right"><div class="flex items-center gap-1 justify-end"><span class="font-body-md text-body-md text-on-surface font-semibold">Ing. Carlos Mendoza</span><span class="font-label-sm text-label-sm bg-primary-container/20 text-primary border border-primary-container/40 px-1 rounded uppercase">Admin</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">SOC Lead Analyst</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant/50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9Yq0-eIRAjmHxcOJyrJzTzK7CR6_JAQo5MWR7_Wron8B4eG-p9bdRoGZT_lUKzkRv1SaMjIwJ7lueTdidk3S36L1oKa8dbTxTrTtAtNWycXO_q3e-ExjOLBQVQ_4LbQvML-WefOdhEQtX9jrV9Wl7g6fo4FQNkkL2DsyY5QIfRJqBnJhcp2HlydeGQPqyzh4oMuUTHFuIAihPRXXRH_63nuxC0uY77uwZ_W7yvbE"/></div></div></header><main class="relative pt-[68px] min-h-screen bg-background w-full px-margin-desktop py-space-xl"><div class="flex flex-col w-full gap-space-lg select-none">
+<!-- Top Command & Filter Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md bg-surface-container-low p-space-lg rounded-xl shadow-xl">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm bg-primary-container/20 text-primary px-2 py-0.5 rounded tracking-widest uppercase">Telemetry &amp; Forensic Analytics</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded">
+<span class="h-1.5 w-1.5 rounded-full bg-secondary"></span>
+          ENGINE ACTIVE: SOC-v2.4
+        </span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Métricas y Analítica de Ciberseguridad</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Visión operacional consolidada para detección, triaje, contención y resiliencia defensiva.</p>
+</div>
+<!-- Action Toolbar & Period Filter -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="bg-surface-container-lowest p-1 rounded-lg flex items-center gap-1 shadow-inner" id="period-selector">
+<button class="font-label-sm text-label-sm px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface transition-all">Últimos 7 días</button>
+<button class="font-label-sm text-label-sm px-3 py-1.5 rounded bg-surface-container-high text-primary shadow-sm">Últimos 30 días</button>
+<button class="font-label-sm text-label-sm px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface transition-all">Último trimestre</button>
+<button class="font-label-sm text-label-sm px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface transition-all">Año 2024</button>
+</div>
+<div class="relative">
+<button class="flex items-center gap-space-xs bg-primary-container hover:bg-primary-container/90 text-on-primary-fixed font-headline-sm text-headline-sm px-4 py-2 rounded-lg shadow-md transition-all" id="exportBtn">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Exportar Reporte CSV / PDF</span>
+</button>
+</div>
+</div>
+</div>
+<!-- KPI Matrix (Strategic Tier) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- KPI 1: Tasa de Resolución -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-lg relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary/5 rounded-full blur-xl group-hover:bg-secondary/10 transition-all"></div>
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tasa de Resolución</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">task_alt</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-space-sm">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold">84.6%</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-secondary bg-secondary/10 px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[12px]">trending_up</span> +6.2%
+          </span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-end justify-between">
+<span class="font-label-sm text-label-sm text-outline">vs. 78.4% mes anterior</span>
+<!-- Sparkline SVG -->
+<svg class="w-24 h-7 text-secondary" fill="none" viewbox="0 0 100 28" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 24 L20 18 L40 21 L60 12 L80 14 L98 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M2 24 L20 18 L40 21 L60 12 L80 14 L98 4 L98 28 L2 28 Z" fill="currentColor" fill-opacity="0.12"></path>
+</svg>
+</div>
+</div>
+<!-- KPI 2: MTTR -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-lg relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary-container/5 rounded-full blur-xl group-hover:bg-secondary-container/10 transition-all"></div>
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">MTTR (Medio de Resolución)</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">timer</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-space-sm">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold">42<span class="font-body-md text-body-md text-on-surface-variant ml-1 font-normal">min</span></span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-secondary bg-secondary/10 px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[12px]">arrow_downward</span> -18 min
+          </span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline">SLA objetivo: &lt; 60 min</span>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-high px-2 py-0.5 rounded font-mono">EN RANGO (-30%)</span>
+</div>
+</div>
+<!-- KPI 3: MTTD -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-lg relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/10 transition-all"></div>
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">MTTD (Medio de Detección)</span>
+<span class="material-symbols-outlined text-primary text-[20px]">radar</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-space-sm">
+<span class="font-headline-xl text-headline-xl text-primary font-bold">4.5<span class="font-body-md text-body-md text-on-surface-variant ml-1 font-normal">min</span></span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-primary bg-primary-container/20 px-1.5 py-0.5 rounded">
+            SOC META: &lt; 5m
+          </span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline">Automatización EDR / SIEM</span>
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container-high px-2 py-0.5 rounded">Alta Confianza</span>
+</div>
+</div>
+<!-- KPI 4: Incidentes Críticos Mitigados -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-lg relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary/10 rounded-full blur-xl group-hover:bg-secondary/20 transition-all"></div>
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Críticos Mitigados</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">shield_lock</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-space-sm">
+<span class="font-headline-xl text-headline-xl text-secondary font-bold">100%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-1.5 py-0.5 rounded">
+            12 de 12 casos
+          </span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary">0 fugas masivas confirmadas</span>
+<span class="inline-flex h-2 w-2 rounded-full bg-secondary"></span>
+</div>
+</div>
+</div>
+<!-- Primary Analytics Row (2 Large Visual Panels) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Chart 1: Temporal Evolution (Reported vs Resolved) -->
+<div class="lg:col-span-7 bg-surface-container p-space-lg rounded-xl shadow-lg flex flex-col justify-between">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Evolución Temporal de Incidentes</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dinámica de ingreso vs mitigación en las últimas 4 semanas</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5">
+<span class="h-2 w-2 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Reportados</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="h-2 w-2 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Solucionados</span>
+</div>
+</div>
+</div>
+<!-- Area Chart (SVG Visualization) -->
+<div class="w-full h-64 bg-surface-container-lowest/50 rounded-lg p-space-md flex flex-col justify-between relative overflow-hidden">
+<!-- SVG Canvas with Dual Curves -->
+<svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 700 200">
+<defs>
+<lineargradient id="gradReported" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ffb95f" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#ffb95f" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="gradResolved" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#3791ff" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#3791ff" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Horizontal Grid Lines -->
+<line stroke="#273647" stroke-dasharray="3 3" x1="0" x2="700" y1="40" y2="40"></line>
+<line stroke="#273647" stroke-dasharray="3 3" x1="0" x2="700" y1="90" y2="90"></line>
+<line stroke="#273647" stroke-dasharray="3 3" x1="0" x2="700" y1="140" y2="140"></line>
+<!-- Area: Reported -->
+<path d="M 0 160 Q 58 130, 116 110 T 233 130 T 350 90 T 466 120 T 583 60 T 700 85 L 700 200 L 0 200 Z" fill="url(#gradReported)"></path>
+<path d="M 0 160 Q 58 130, 116 110 T 233 130 T 350 90 T 466 120 T 583 60 T 700 85" fill="none" stroke="#ffb95f" stroke-width="2.5"></path>
+<!-- Area: Resolved -->
+<path d="M 0 180 Q 58 150, 116 125 T 233 110 T 350 70 T 466 100 T 583 45 T 700 55 L 700 200 L 0 200 Z" fill="url(#gradResolved)"></path>
+<path d="M 0 180 Q 58 150, 116 125 T 233 110 T 350 70 T 466 100 T 583 45 T 700 55" fill="none" stroke="#3791ff" stroke-width="2.5"></path>
+<!-- Data Points on Peaks -->
+<circle class="animate-pulse" cx="350" cy="70" fill="#3791ff" r="4"></circle>
+<circle cx="583" cy="45" fill="#3791ff" r="4"></circle>
+<circle cx="583" cy="60" fill="#ffb95f" r="4"></circle>
+</svg>
+<!-- X Axis Labels -->
+<div class="flex justify-between items-center font-label-sm text-label-sm text-outline pt-2">
+<span>Lun (Sem 1)</span>
+<span>Jue</span>
+<span>Lun (Sem 2)</span>
+<span>Jue</span>
+<span>Lun (Sem 3)</span>
+<span>Jue</span>
+<span>Lun (Sem 4)</span>
+<span>Dom (Cierre)</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-space-sm mt-space-md text-center">
+<div class="bg-surface-container-high p-space-sm rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Total Ingesta</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">128 casos</span>
+</div>
+<div class="bg-surface-container-high p-space-sm rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Cerrados Exitosos</span>
+<span class="font-headline-sm text-headline-sm text-primary">105 casos</span>
+</div>
+<div class="bg-surface-container-high p-space-sm rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Eficacia Triage</span>
+<span class="font-headline-sm text-headline-sm text-secondary">98.2%</span>
+</div>
+</div>
+</div>
+<!-- Chart 2: Category Distribution -->
+<div class="lg:col-span-5 bg-surface-container p-space-lg rounded-xl shadow-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Distribución por Categoría</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Clasificación taxonómica de incidentes confirmados</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary bg-surface-container-high px-2 py-0.5 rounded">30 DÍAS</span>
+</div>
+<!-- Horizontal Bars List -->
+<div class="flex flex-col gap-space-md">
+<!-- Phishing 35.2% -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-md text-label-md">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">alternate_email</span> Phishing
+              </span>
+<span class="text-primary font-bold">35.2% <span class="text-outline font-normal">(45)</span></span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full transition-all duration-700" style="width: 35.2%"></div>
+</div>
+</div>
+<!-- Acceso no autorizado 21.9% -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-md text-label-md">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-error">lock_open</span> Acceso no autorizado
+              </span>
+<span class="text-error font-bold">21.9% <span class="text-outline font-normal">(28)</span></span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full transition-all duration-700" style="width: 21.9%"></div>
+</div>
+</div>
+<!-- Malware 17.2% -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-md text-label-md">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">bug_report</span> Malware &amp; Ransomware
+              </span>
+<span class="text-tertiary font-bold">17.2% <span class="text-outline font-normal">(22)</span></span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full transition-all duration-700" style="width: 17.2%"></div>
+</div>
+</div>
+<!-- Pérdida de equipo 10.9% -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-md text-label-md">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">laptop_chromebook</span> Pérdida de equipo
+              </span>
+<span class="text-on-surface-variant font-bold">10.9% <span class="text-outline font-normal">(14)</span></span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-surface-variant h-full rounded-full transition-all duration-700" style="width: 10.9%"></div>
+</div>
+</div>
+<!-- Fuga de información 8.6% -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-md text-label-md">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">output</span> Fuga de información
+              </span>
+<span class="text-secondary font-bold">8.6% <span class="text-outline font-normal">(11)</span></span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-700" style="width: 8.6%"></div>
+</div>
+</div>
+<!-- Otros 6.2% -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-md text-label-md">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">category</span> Otros
+              </span>
+<span class="text-outline font-bold">6.2% <span class="text-outline font-normal">(8)</span></span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-outline-variant h-full rounded-full transition-all duration-700" style="width: 6.2%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-sm border-t border-surface-variant/30 flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-outline">Factor de Riesgo Predominante:</span>
+<span class="font-label-sm text-label-sm text-primary bg-primary-container/10 px-2 py-0.5 rounded font-mono">Ingeniería Social (43.8%)</span>
+</div>
+</div>
+</div>
+<!-- Operational Analytical Triad (3 Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Card A: Donut Severidad -->
+<div class="bg-surface-container p-space-lg rounded-xl shadow-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Incidentes por Severidad</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">TOTAL: 128</span>
+</div>
+<!-- Donut Visual Chart -->
+<div class="relative flex items-center justify-center my-space-md">
+<svg class="w-48 h-48 transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background circle track -->
+<circle cx="50" cy="50" fill="none" r="38" stroke="#1c2b3c" stroke-width="12"></circle>
+<!-- Low (Baja): 23.4% -> 23.4 * 2.387 = ~56 -->
+<circle cx="50" cy="50" fill="none" r="38" stroke="#a8c8ff" stroke-dasharray="55.8 238.7" stroke-dashoffset="0" stroke-linecap="round" stroke-width="12"></circle>
+<!-- Medium (Media): 40.6% -> 40.6 * 2.387 = ~96.9 -->
+<circle cx="50" cy="50" fill="none" r="38" stroke="#ffb95f" stroke-dasharray="96.9 238.7" stroke-dashoffset="-55.8" stroke-linecap="round" stroke-width="12"></circle>
+<!-- High (Alta): 26.6% -> 26.6 * 2.387 = ~63.5 -->
+<circle cx="50" cy="50" fill="none" r="38" stroke="#ca8100" stroke-dasharray="63.5 238.7" stroke-dashoffset="-152.7" stroke-linecap="round" stroke-width="12"></circle>
+<!-- Critical (Crítica): 9.4% -> 9.4 * 2.387 = ~22.5 -->
+<circle cx="50" cy="50" fill="none" r="38" stroke="#ffb4ab" stroke-dasharray="22.5 238.7" stroke-dashoffset="-216.2" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<!-- Donut Center Telemetry -->
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface leading-none">128</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-1">Casos SOC</span>
+</div>
+</div>
+<!-- Donut Legend Grid -->
+<div class="grid grid-cols-2 gap-space-xs font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 p-1 bg-surface-container-high rounded">
+<span class="h-2.5 w-2.5 rounded-sm bg-error"></span>
+<span class="text-on-surface-variant">Crítica:</span>
+<span class="text-error font-bold ml-auto">9.4% (12)</span>
+</div>
+<div class="flex items-center gap-1.5 p-1 bg-surface-container-high rounded">
+<span class="h-2.5 w-2.5 rounded-sm bg-tertiary-container"></span>
+<span class="text-on-surface-variant">Alta:</span>
+<span class="text-tertiary font-bold ml-auto">26.6% (34)</span>
+</div>
+<div class="flex items-center gap-1.5 p-1 bg-surface-container-high rounded">
+<span class="h-2.5 w-2.5 rounded-sm bg-tertiary"></span>
+<span class="text-on-surface-variant">Media:</span>
+<span class="text-tertiary-fixed-dim font-bold ml-auto">40.6% (52)</span>
+</div>
+<div class="flex items-center gap-1.5 p-1 bg-surface-container-high rounded">
+<span class="h-2.5 w-2.5 rounded-sm bg-primary"></span>
+<span class="text-on-surface-variant">Baja:</span>
+<span class="text-primary font-bold ml-auto">23.4% (30)</span>
+</div>
+</div>
+</div>
+<!-- Card B: Estatus Operativo del Mes -->
+<div class="bg-surface-container p-space-lg rounded-xl shadow-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Estatus Operativo del Mes</h3>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-high px-2 py-0.5 rounded">EN TIEMPO REAL</span>
+</div>
+<div class="flex flex-col gap-space-lg my-space-md">
+<!-- Status 1: Solucionados -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-secondary"></span> Solucionados
+            </span>
+<span class="font-label-md text-label-md text-secondary font-bold">67 casos <span class="text-outline font-normal">(52.3%)</span></span>
+</div>
+<div class="w-full bg-surface-container-lowest h-3 rounded overflow-hidden">
+<div class="bg-secondary h-full rounded" style="width: 52.3%"></div>
+</div>
+</div>
+<!-- Status 2: En Proceso -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-primary-container"></span> En Proceso de Mitigación
+            </span>
+<span class="font-label-md text-label-md text-primary font-bold">38 casos <span class="text-outline font-normal">(29.7%)</span></span>
+</div>
+<div class="w-full bg-surface-container-lowest h-3 rounded overflow-hidden">
+<div class="bg-primary-container h-full rounded" style="width: 29.7%"></div>
+</div>
+</div>
+<!-- Status 3: Pendientes -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-tertiary"></span> Pendientes de Triaje
+            </span>
+<span class="font-label-md text-label-md text-tertiary font-bold">23 casos <span class="text-outline font-normal">(18.0%)</span></span>
+</div>
+<div class="w-full bg-surface-container-lowest h-3 rounded overflow-hidden">
+<div class="bg-tertiary h-full rounded" style="width: 18.0%"></div>
+</div>
+</div>
+</div>
+<!-- Operational Readiness Indicator -->
+<div class="bg-surface-container-high p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-body-sm text-body-sm text-on-surface">Capacidad del Turno SOC:</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono font-bold">OPTIMAL (91.4%)</span>
+</div>
+</div>
+<!-- Card C: Vectores de Ataque Frecuentes -->
+<div class="bg-surface-container p-space-lg rounded-xl shadow-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Vectores de Ataque Frecuentes</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">ORIGEN</span>
+</div>
+<div class="flex flex-col gap-space-sm my-space-sm">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-high rounded-lg hover:bg-surface-variant transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm bg-primary-container/20 text-primary px-1.5 py-0.5 rounded font-bold">#1</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Correo malicioso</span>
+<span class="font-label-sm text-label-sm text-outline">Spear-phishing &amp; attachments</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-error bg-error/10 px-2 py-0.5 rounded font-mono">48.3%</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-high rounded-lg hover:bg-surface-variant transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant px-1.5 py-0.5 rounded font-bold">#2</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Endpoint desactualizado</span>
+<span class="font-label-sm text-label-sm text-outline">CVE sin parchear / Win10</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-2 py-0.5 rounded font-mono">24.1%</span>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-high rounded-lg hover:bg-surface-variant transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant px-1.5 py-0.5 rounded font-bold">#3</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Credenciales débiles en VPN</span>
+<span class="font-label-sm text-label-sm text-outline">Fuerza bruta &amp; falta MFA</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary bg-primary/10 px-2 py-0.5 rounded font-mono">16.4%</span>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-high rounded-lg hover:bg-surface-variant transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant px-1.5 py-0.5 rounded font-bold">#4</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Puertos RDP expuestos</span>
+<span class="font-label-sm text-label-sm text-outline">Port 3389 WAN ingress</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary/10 px-2 py-0.5 rounded font-mono">11.2%</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-space-xs">
+<span>Actualización de IoCs</span>
+<span class="text-secondary font-mono">Hace 14 min</span>
+</div>
+</div>
+</div>
+<!-- Operational Department Summary Table -->
+<div class="bg-surface-container p-space-lg rounded-xl shadow-lg flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">corporate_fare</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Resumen Mensual por Departamento</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Distribución del impacto corporativo, SLA de respuesta y nivel de riesgo residual</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline">Filtrar por criticidad:</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface px-2 py-1 rounded cursor-pointer hover:bg-surface-variant transition-colors">Todos (5)</span>
+</div>
+</div>
+<!-- Administrative Data Table -->
+<div class="overflow-x-auto rounded-lg">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest font-label-md text-label-md text-outline border-b border-surface-variant">
+<th class="py-3 px-4">DEPARTAMENTO</th>
+<th class="py-3 px-4">TOTAL REPORTES</th>
+<th class="py-3 px-4">INCIDENTES CRÍTICOS</th>
+<th class="py-3 px-4">TASA DE RESPUESTA</th>
+<th class="py-3 px-4">TIEMPO PROMEDIO (MTTR)</th>
+<th class="py-3 px-4">RIESGO RESIDUAL</th>
+<th class="py-3 px-4 text-right">ACCIÓN SOC</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant/30 font-body-sm text-body-sm">
+<!-- Row 1: Finanzas -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors group">
+<td class="py-3.5 px-4 font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">account_balance</span>
+              Finanzas &amp; Contabilidad
+            </td>
+<td class="py-3.5 px-4 font-mono text-on-surface">42 casos</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm text-error bg-error/15 px-2 py-0.5 rounded font-mono">5 críticos</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 92.8%"></div>
+</div>
+<span class="font-mono text-secondary font-semibold">92.8%</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-mono text-on-surface-variant">34 min</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-2 py-0.5 rounded border-0">MODERADO</span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="font-label-sm text-label-sm bg-surface-container-lowest hover:bg-primary-container hover:text-on-primary-fixed text-primary px-3 py-1 rounded transition-colors">
+                Auditar
+              </button>
+</td>
+</tr>
+<!-- Row 2: TI -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors group">
+<td class="py-3.5 px-4 font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">terminal</span>
+              Tecnología &amp; Infraestructura (TI)
+            </td>
+<td class="py-3.5 px-4 font-mono text-on-surface">36 casos</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm text-error bg-error/15 px-2 py-0.5 rounded font-mono">4 críticos</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 97.2%"></div>
+</div>
+<span class="font-mono text-secondary font-semibold">97.2%</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-mono text-on-surface-variant">21 min</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm text-secondary bg-secondary/10 px-2 py-0.5 rounded border-0">BAJO CONTROL</span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="font-label-sm text-label-sm bg-surface-container-lowest hover:bg-primary-container hover:text-on-primary-fixed text-primary px-3 py-1 rounded transition-colors">
+                Auditar
+              </button>
+</td>
+</tr>
+<!-- Row 3: RRHH -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors group">
+<td class="py-3.5 px-4 font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">badge</span>
+              Recursos Humanos (RRHH)
+            </td>
+<td class="py-3.5 px-4 font-mono text-on-surface">22 casos</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm text-outline bg-surface-container-lowest px-2 py-0.5 rounded font-mono">1 crítico</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 77.2%"></div>
+</div>
+<span class="font-mono text-on-surface-variant font-semibold">77.2%</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-mono text-on-surface-variant">58 min</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-2 py-0.5 rounded border-0">MODERADO</span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="font-label-sm text-label-sm bg-surface-container-lowest hover:bg-primary-container hover:text-on-primary-fixed text-primary px-3 py-1 rounded transition-colors">
+                Auditar
+              </button>
+</td>
+</tr>
+<!-- Row 4: Operaciones -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors group">
+<td class="py-3.5 px-4 font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">precision_manufacturing</span>
+              Operaciones &amp; Planta
+            </td>
+<td class="py-3.5 px-4 font-mono text-on-surface">16 casos</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm text-error bg-error/15 px-2 py-0.5 rounded font-mono">2 críticos</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 87.5%"></div>
+</div>
+<span class="font-mono text-secondary font-semibold">87.5%</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-mono text-on-surface-variant">46 min</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm text-secondary bg-secondary/10 px-2 py-0.5 rounded border-0">BAJO CONTROL</span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="font-label-sm text-label-sm bg-surface-container-lowest hover:bg-primary-container hover:text-on-primary-fixed text-primary px-3 py-1 rounded transition-colors">
+                Auditar
+              </button>
+</td>
+</tr>
+<!-- Row 5: Ventas -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors group">
+<td class="py-3.5 px-4 font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[18px]">point_of_sale</span>
+              Ventas &amp; Comercial
+            </td>
+<td class="py-3.5 px-4 font-mono text-on-surface">12 casos</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm text-outline bg-surface-container-lowest px-2 py-0.5 rounded font-mono">0 críticos</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 66.6%"></div>
+</div>
+<span class="font-mono text-tertiary font-semibold">66.6%</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-mono text-on-surface-variant">64 min</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm text-error bg-error/10 px-2 py-0.5 rounded border-0">RIESGO ALTO (MFA)</span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="font-label-sm text-label-sm bg-surface-container-lowest hover:bg-primary-container hover:text-on-primary-fixed text-primary px-3 py-1 rounded transition-colors">
+                Auditar
+              </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Meta -->
+<div class="flex flex-col sm:flex-row items-center justify-between pt-space-xs text-outline font-label-sm text-label-sm gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Datos auditados bajo norma ISO/IEC 27035 y marco NIST CSF</span>
+</div>
+<div class="flex items-center gap-4">
+<span>Frecuencia de muestreo: <strong class="text-on-surface font-mono">Cada 5 minutos</strong></span>
+<span>Firmado por: <strong class="text-on-surface font-mono">SOC Sentinel Core Engine</strong></span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for period filter toggle
+  document.querySelectorAll('#period-selector button').forEach(button => {
+    button.addEventListener('click', function() {
+      document.querySelectorAll('#period-selector button').forEach(btn => {
+        btn.classList.remove('bg-surface-container-high', 'text-primary', 'shadow-sm');
+        btn.classList.add('text-on-surface-variant');
+      });
+      this.classList.remove('text-on-surface-variant');
+      this.classList.add('bg-surface-container-high', 'text-primary', 'shadow-sm');
+    });
+  });
+
+  // Export action visual feedback
+  const exportBtn = document.getElementById('exportBtn');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', () => {
+      const originalText = exportBtn.innerHTML;
+      exportBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Generando Reporte...</span>';
+      setTimeout(() => {
+        exportBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check_circle</span><span>Descarga Lista</span>';
+        setTimeout(() => {
+          exportBtn.innerHTML = originalText;
+        }, 2500);
+      }, 1200);
+    });
+  }
+</script></main></div></body></html>

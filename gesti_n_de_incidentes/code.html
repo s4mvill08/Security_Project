@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-fixed":"#001b3c","surface-container-lowest":"#010f1f","on-error":"#690005","secondary-fixed":"#76fac4","tertiary-fixed-dim":"#ffb95f","secondary-fixed-dim":"#57dda9","surface-container-high":"#1c2b3c","surface-variant":"#273647","error":"#ffb4ab","surface-container-highest":"#273647","on-secondary-fixed":"#002115","on-tertiary-container":"#3e2400","secondary-container":"#00ab7b","tertiary-fixed":"#ffddb8","inverse-primary":"#005eb4","on-surface":"#d4e4fa","secondary":"#57dda9","on-primary":"#003062","primary":"#a8c8ff","primary-fixed-dim":"#a8c8ff","surface-bright":"#2c3a4c","on-error-container":"#ffdad6","on-tertiary-fixed":"#2a1700","on-surface-variant":"#c1c6d5","surface-container":"#122131","on-primary-fixed-variant":"#00468a","tertiary":"#ffb95f","primary-fixed":"#d6e3ff","on-background":"#d4e4fa","on-secondary-fixed-variant":"#005139","error-container":"#93000a","inverse-on-surface":"#233143","surface-dim":"#051424","primary-container":"#3791ff","on-tertiary-fixed-variant":"#653e00","background":"#051424","surface-container-low":"#0d1c2d","inverse-surface":"#d4e4fa","on-secondary":"#003826","on-tertiary":"#472a00","outline":"#8b919f","surface":"#051424","outline-variant":"#414753","on-secondary-container":"#003624","tertiary-container":"#ca8100","surface-tint":"#a8c8ff","on-primary-container":"#002956"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-desktop":"2rem","space-xs":"0.25rem","space-md":"0.75rem","gutter-tablet":"0.75rem","space-sm":"0.5rem","space-lg":"1.25rem","gutter-desktop":"1.25rem","margin-tablet":"1.5rem","gutter":"1rem","space-xl":"2rem","margin":"1rem"},fontFamily:{"headline-xl-mobile":["Inter"],"label-lg":["JetBrains Mono"],"headline-xl":["Inter"],"body-lg":["Inter"],"headline-lg":["Inter"],"headline-sm":["Inter"],"headline-lg-mobile":["Inter"],"headline-md":["Inter"],"label-sm":["JetBrains Mono"],"body-sm":["Inter"],"body-md":["Inter"],"label-md":["JetBrains Mono"]},fontSize:{"headline-xl-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.02em",fontWeight:"500"}],"headline-xl":["36px",{lineHeight:"44px",letterSpacing:"-0.025em",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-lg-mobile":["22px",{lineHeight:"30px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"500"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-screen w-[260px] bg-surface-container-low border-r border-outline-variant/30 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-[68px] px-space-lg flex items-center gap-space-sm border-b border-outline-variant/20 bg-surface-container-lowest/50"><img alt="SENTINEL Shield Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vswqdv8HDcL3yeEzq3QJx1F76_erhOa_Iu81iT8t4lmGQR3LTTp_Z__AY6V3XX-s2vUn6tsLufEAThm8d5zJMCNZMsvapoo2pXMZhwhJ_6XSOIe2YLgDGXs7znmNhF2nFEZ1X-QLYV17YR-TwjlafxQFyH6VXBI-BOavfL84Cs1n15OvmOpR0tKW0PFIWU9-Qp5Gux91zGwbrFFTcHX-pbvveVuVwz6Hs37g_O-U7w"/><div class="flex flex-col leading-none"><span class="font-headline-sm text-headline-sm text-primary tracking-wide">SENTINEL</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-0.5">SOC &amp; Security Ops</span></div></div><div class="px-space-md pt-space-md"><div class="flex items-center gap-space-sm px-space-sm py-1 bg-surface-container rounded-lg border border-secondary/20 shadow-[0_0_12px_rgba(87,221,169,0.08)]"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">MONITOREO ACTIVO</span></div></div><nav class="flex flex-col gap-1 px-space-xs mt-space-lg" data-active-classes="bg-surface-container-high text-primary font-semibold border-l-2 border-primary-container shadow-inner"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-body-md text-body-md">Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="registrar-incidente" href="#"><span class="material-symbols-outlined text-[20px]">add_circle</span><span class="font-body-md text-body-md">Registrar incidente</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded transition-colors bg-surface-container-high text-primary font-semibold border-l-2 border-primary-container shadow-inner" data-path="incidentes" href="#"><span class="material-symbols-outlined text-[20px]">gpp_maybe</span><span class="font-body-md text-body-md">Incidentes</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="seguimiento" href="#"><span class="material-symbols-outlined text-[20px]">timeline</span><span class="font-body-md text-body-md">Seguimiento</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="estadisticas" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span class="font-body-md text-body-md">Estadísticas</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="ayuda" href="#"><span class="material-symbols-outlined text-[20px]">help</span><span class="font-body-md text-body-md">Ayuda</span></a></nav></div><div class="p-space-md border-t border-outline-variant/20 bg-surface-container-lowest/40 flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">DEFCON Status</span><span class="font-label-sm text-label-sm text-secondary bg-surface-container px-1.5 py-0.5 rounded border border-secondary/30">Nivel 5 (Normal)</span></div><div class="flex items-center justify-between text-outline mt-1"><span class="font-label-sm text-label-sm">SOC Enterprise</span><span class="font-label-sm text-label-sm">v2.4.1</span></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-[68px] bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 z-40 px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-md w-96"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-space-sm text-outline text-[18px]">search</span><input class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded px-space-lg py-1.5 pl-8 text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Buscar incidente por código, IP, usuario o CVE..." type="text"/><kbd class="absolute right-space-sm font-label-sm text-label-sm bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded border border-outline-variant/40">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded border border-tertiary-container/40"><span class="material-symbols-outlined text-tertiary text-[18px]">warning</span><span class="font-label-sm text-label-sm text-tertiary font-semibold">INCIDENTES ACTIVOS: 14</span></div><div class="hidden md:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded border border-secondary/30"><span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span><span class="font-label-sm text-label-sm text-on-surface">Red: Protegido</span></div><button class="relative p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-[9px] font-bold">3</span></button><div class="h-6 w-[1px] bg-outline-variant/30"></div><div class="flex items-center gap-space-sm"><div class="flex flex-col text-right"><div class="flex items-center gap-1 justify-end"><span class="font-body-md text-body-md text-on-surface font-semibold">Ing. Carlos Mendoza</span><span class="font-label-sm text-label-sm bg-primary-container/20 text-primary border border-primary-container/40 px-1 rounded uppercase">Admin</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">SOC Lead Analyst</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant/50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9Yq0-eIRAjmHxcOJyrJzTzK7CR6_JAQo5MWR7_Wron8B4eG-p9bdRoGZT_lUKzkRv1SaMjIwJ7lueTdidk3S36L1oKa8dbTxTrTtAtNWycXO_q3e-ExjOLBQVQ_4LbQvML-WefOdhEQtX9jrV9Wl7g6fo4FQNkkL2DsyY5QIfRJqBnJhcp2HlydeGQPqyzh4oMuUTHFuIAihPRXXRH_63nuxC0uY77uwZ_W7yvbE"/></div></div></header><main class="relative pt-[68px] min-h-screen bg-background w-full px-margin-desktop py-space-xl"><div class="flex flex-col w-full gap-space-lg select-none">
+<!-- Triage Summary & Telemetry Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md p-space-md bg-surface-container-low rounded-xl shadow-md">
+<div class="flex items-center gap-space-md">
+<div class="p-2 bg-primary-container/10 rounded-lg text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">gpp_maybe</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Gestión de Incidentes de Seguridad</h1>
+<span class="font-label-sm text-label-sm bg-secondary-container/20 text-secondary px-2 py-0.5 rounded uppercase tracking-wider font-semibold">Live Feed</span>
+</div>
+<div class="flex items-center gap-space-sm mt-0.5">
+<span class="font-label-md text-label-md text-on-surface-variant">Total registros:</span>
+<span class="font-label-md text-label-md text-primary font-bold">128 incidentes indexados</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-outline-variant/60"></span>
+<span class="font-label-sm text-label-sm text-outline">Cluster SOC-US-EAST-1</span>
+</div>
+</div>
+</div>
+<!-- Quick Action Toolbelt -->
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1.5 px-space-md py-2 bg-surface-container-high hover:bg-surface-variant text-on-surface rounded font-label-md text-label-md transition-all shadow-sm" id="btn-export-csv">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">file_download</span>
+<span>Exportar CSV</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-md py-2 bg-surface-container-high hover:bg-surface-variant text-on-surface rounded font-label-md text-label-md transition-all shadow-sm" id="btn-refresh">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant transition-transform duration-500" id="icon-refresh">sync</span>
+<span>Recargar tabla</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-lg py-2 bg-primary-container hover:bg-primary text-on-primary-fixed rounded font-body-md text-body-md font-semibold transition-all shadow-md">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>+ Nuevo Incidente</span>
+</button>
+</div>
+</div>
+<!-- Operational Filter Matrix -->
+<div class="flex flex-col bg-surface-container-low rounded-xl shadow-md p-space-md gap-space-md">
+<!-- Search and Direct Filters -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-md items-center">
+<!-- Search Bar -->
+<div class="lg:col-span-4 relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span>
+<input class="w-full bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm rounded pl-9 pr-16 py-2.5 outline-none focus:bg-surface-container-high transition-colors" id="incident-search-input" placeholder="Buscar por código, título, reportante o IP..." type="text"/>
+<span class="absolute right-2.5 font-label-sm text-label-sm bg-surface-container px-1.5 py-0.5 rounded text-outline">grep:</span>
+</div>
+<!-- Category Filter -->
+<div class="lg:col-span-2">
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded px-3 py-2.5 pr-8 outline-none focus:bg-surface-container-high transition-colors cursor-pointer">
+<option value="all">Categoría: Todas</option>
+<option value="phishing">Phishing</option>
+<option value="unauth">Acceso no autorizado</option>
+<option value="lost_device">Pérdida de dispositivo</option>
+<option value="malware">Malware</option>
+<option value="data_leak">Fuga de información</option>
+<option value="other">Otro</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 pointer-events-none text-outline text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Priority Filter -->
+<div class="lg:col-span-2">
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded px-3 py-2.5 pr-8 outline-none focus:bg-surface-container-high transition-colors cursor-pointer">
+<option value="all">Prioridad: Todas</option>
+<option value="critical">🔴 Crítica</option>
+<option value="high">🟠 Alta</option>
+<option value="medium">🟡 Media</option>
+<option value="low">🔵 Baja</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 pointer-events-none text-outline text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- State Filter -->
+<div class="lg:col-span-2">
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded px-3 py-2.5 pr-8 outline-none focus:bg-surface-container-high transition-colors cursor-pointer">
+<option value="all">Estado: Todos</option>
+<option value="pending">Pendiente</option>
+<option value="in_progress">En proceso</option>
+<option value="resolved">Solucionado</option>
+<option value="rejected">Rechazado</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 pointer-events-none text-outline text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Date Range Picker Mock -->
+<div class="lg:col-span-2 flex items-center gap-space-xs">
+<div class="relative w-full">
+<div class="flex items-center justify-between w-full bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded px-3 py-2.5 cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-outline text-[16px]">calendar_today</span>
+<span class="truncate">Últimos 30 días</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px]">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Views Tabs & Secondary Filter Flush -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center bg-surface-container-lowest rounded-lg p-1 gap-1">
+<button class="filter-tab active-tab px-space-md py-1.5 rounded font-label-md text-label-md bg-surface-container-high text-primary font-bold shadow-sm transition-all" data-filter="all">
+          Todos <span class="ml-1 px-1.5 py-0.2 bg-primary-container/20 rounded font-label-sm text-label-sm">128</span>
+</button>
+<button class="filter-tab px-space-md py-1.5 rounded font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-filter="pending">
+          Pendientes <span class="ml-1 px-1.5 py-0.2 bg-tertiary-container/20 text-tertiary rounded font-label-sm text-label-sm">23</span>
+</button>
+<button class="filter-tab px-space-md py-1.5 rounded font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-filter="in_progress">
+          En proceso <span class="ml-1 px-1.5 py-0.2 bg-primary-container/20 text-primary rounded font-label-sm text-label-sm">38</span>
+</button>
+<button class="filter-tab px-space-md py-1.5 rounded font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-filter="resolved">
+          Solucionados <span class="ml-1 px-1.5 py-0.2 bg-secondary-container/20 text-secondary rounded font-label-sm text-label-sm">67</span>
+</button>
+</div>
+<button class="flex items-center gap-1 px-space-sm py-1.5 text-on-surface-variant hover:text-on-surface font-label-md text-label-md rounded hover:bg-surface-container-highest transition-colors" id="btn-clear-filters">
+<span class="material-symbols-outlined text-[16px]">filter_alt_off</span>
+<span>Limpiar filtros</span>
+</button>
+</div>
+</div>
+<!-- Incident Master Table Module -->
+<div class="relative flex flex-col bg-surface-container-low rounded-xl shadow-xl overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full border-collapse text-left">
+<!-- Table Head -->
+<thead>
+<tr class="bg-surface-container-lowest text-outline font-label-md text-label-md">
+<th class="py-3 px-4 w-10 text-center">
+<input class="w-3.5 h-3.5 rounded bg-surface-container-high text-primary cursor-pointer accent-primary-container" id="select-all-rows" type="checkbox"/>
+</th>
+<th class="py-3 px-3 cursor-pointer hover:text-on-surface transition-colors">
+<div class="flex items-center gap-1">
+<span>CÓDIGO</span>
+<span class="material-symbols-outlined text-[14px]">unfold_more</span>
+</div>
+</th>
+<th class="py-3 px-4 cursor-pointer hover:text-on-surface transition-colors">
+<div class="flex items-center gap-1">
+<span>TÍTULO DEL INCIDENTE</span>
+<span class="material-symbols-outlined text-[14px]">unfold_more</span>
+</div>
+</th>
+<th class="py-3 px-4 cursor-pointer hover:text-on-surface transition-colors">
+<div class="flex items-center gap-1">
+<span>REPORTANTE / DPTO</span>
+<span class="material-symbols-outlined text-[14px]">unfold_more</span>
+</div>
+</th>
+<th class="py-3 px-3 cursor-pointer hover:text-on-surface transition-colors">
+<div class="flex items-center gap-1">
+<span>CATEGORÍA</span>
+<span class="material-symbols-outlined text-[14px]">unfold_more</span>
+</div>
+</th>
+<th class="py-3 px-3 cursor-pointer hover:text-on-surface transition-colors">
+<div class="flex items-center gap-1">
+<span>PRIORIDAD</span>
+<span class="material-symbols-outlined text-[14px]">unfold_more</span>
+</div>
+</th>
+<th class="py-3 px-3 cursor-pointer hover:text-on-surface transition-colors">
+<div class="flex items-center gap-1">
+<span>FECHA REGISTRO</span>
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+</div>
+</th>
+<th class="py-3 px-3 cursor-pointer hover:text-on-surface transition-colors">
+<div class="flex items-center gap-1">
+<span>ESTADO</span>
+<span class="material-symbols-outlined text-[14px]">unfold_more</span>
+</div>
+</th>
+<th class="py-3 px-4 text-right">
+<span>ACCIONES</span>
+</th>
+</tr>
+</thead>
+<!-- Table Body -->
+<tbody class="divide-y-0 font-body-md text-body-md text-on-surface">
+<!-- ROW 1 -->
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-3 px-4 text-center">
+<input class="row-checkbox w-3.5 h-3.5 rounded bg-surface-container text-primary cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-3 px-3">
+<a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-1" href="#">
+                INC-001
+                <span class="material-symbols-outlined text-[12px] opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</a>
+</td>
+<td class="py-3 px-4">
+<div class="font-body-md text-body-md text-on-surface font-medium max-w-sm truncate">
+                Campaña masiva de spear phishing simulando RRHH
+              </div>
+<span class="font-label-sm text-label-sm text-outline">Vector: O365 Exchange Gateway</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">person</span>
+<div>
+<div class="text-on-surface font-body-sm text-body-sm font-semibold">Laura Restrepo</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Finanzas</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-tertiary">mail_lock</span>
+<span class="font-label-sm text-label-sm">Phishing</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm bg-error-container/30 text-error font-bold uppercase tracking-wider">
+                Crítica
+              </span>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">24/10/2024 14:10</span>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded font-label-sm text-label-sm bg-primary-container/15 text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>En proceso</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors" title="Ver detalle">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-surface-variant transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-variant transition-colors" onclick="openDeleteModal('INC-001')" title="Eliminar">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2 -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors group">
+<td class="py-3 px-4 text-center">
+<input class="row-checkbox w-3.5 h-3.5 rounded bg-surface-container text-primary cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-3 px-3">
+<a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-1" href="#">
+                INC-002
+                <span class="material-symbols-outlined text-[12px] opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</a>
+</td>
+<td class="py-3 px-4">
+<div class="font-body-md text-body-md text-on-surface font-medium max-w-sm truncate">
+                Intento de fuerza bruta en VPN corporativa
+              </div>
+<span class="font-label-sm text-label-sm text-outline">Origen: 185.220.101.42 (Tor Exit Node)</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">smart_toy</span>
+<div>
+<div class="text-on-surface font-body-sm text-body-sm font-semibold">Sistema SIEM Alert</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Infra</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-tertiary">key_off</span>
+<span class="font-label-sm text-label-sm">Acceso no autorizado</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/30 text-tertiary font-bold uppercase tracking-wider">
+                Alta
+              </span>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">24/10/2024 13:45</span>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/20 text-tertiary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+<span>Pendiente</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors" title="Ver detalle">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-surface-variant transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-variant transition-colors" onclick="openDeleteModal('INC-002')" title="Eliminar">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3 -->
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-3 px-4 text-center">
+<input class="row-checkbox w-3.5 h-3.5 rounded bg-surface-container text-primary cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-3 px-3">
+<a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-1" href="#">
+                INC-003
+                <span class="material-symbols-outlined text-[12px] opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</a>
+</td>
+<td class="py-3 px-4">
+<div class="font-body-md text-body-md text-on-surface font-medium max-w-sm truncate">
+                Endpoint detectado con ransomware LockBit
+              </div>
+<span class="font-label-sm text-label-sm text-error">Contención de Host Requerida</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">person</span>
+<div>
+<div class="text-on-surface font-body-sm text-body-sm font-semibold">David Soria</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">TI Infra</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-error">bug_report</span>
+<span class="font-label-sm text-label-sm">Malware</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm bg-error-container/30 text-error font-bold uppercase tracking-wider">
+                Crítica
+              </span>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">24/10/2024 13:20</span>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded font-label-sm text-label-sm bg-primary-container/15 text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>En proceso</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors" title="Ver detalle">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-surface-variant transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-variant transition-colors" onclick="openDeleteModal('INC-003')" title="Eliminar">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4 -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors group">
+<td class="py-3 px-4 text-center">
+<input class="row-checkbox w-3.5 h-3.5 rounded bg-surface-container text-primary cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-3 px-3">
+<a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-1" href="#">
+                INC-004
+                <span class="material-symbols-outlined text-[12px] opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</a>
+</td>
+<td class="py-3 px-4">
+<div class="font-body-md text-body-md text-on-surface font-medium max-w-sm truncate">
+                Laptop Lenovo extraviada en aeropuerto con disco cifrado
+              </div>
+<span class="font-label-sm text-label-sm text-secondary">BitLocker Verificado | Token Revocado</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">person</span>
+<div>
+<div class="text-on-surface font-body-sm text-body-sm font-semibold">Sofía Navarro</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Ventas</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-outline">laptop_chromebook</span>
+<span class="font-label-sm text-label-sm">Pérdida dispositivo</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-fixed/20 text-tertiary-fixed-dim font-bold uppercase tracking-wider">
+                Media
+              </span>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">24/10/2024 11:30</span>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded font-label-sm text-label-sm bg-secondary-container/20 text-secondary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Solucionado</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors" title="Ver detalle">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-surface-variant transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-variant transition-colors" onclick="openDeleteModal('INC-004')" title="Eliminar">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 5 -->
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-3 px-4 text-center">
+<input class="row-checkbox w-3.5 h-3.5 rounded bg-surface-container text-primary cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-3 px-3">
+<a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-1" href="#">
+                INC-005
+                <span class="material-symbols-outlined text-[12px] opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</a>
+</td>
+<td class="py-3 px-4">
+<div class="font-body-md text-body-md text-on-surface font-medium max-w-sm truncate">
+                Exfiltración anómala de archivos hacia almacenamiento externo
+              </div>
+<span class="font-label-sm text-label-sm text-outline">Volumen: 4.8 GB | USB Storage Blocked</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">security</span>
+<div>
+<div class="text-on-surface font-body-sm text-body-sm font-semibold">DLP Monitor</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Seguridad</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-error">cloud_upload</span>
+<span class="font-label-sm text-label-sm">Fuga información</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/30 text-tertiary font-bold uppercase tracking-wider">
+                Alta
+              </span>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">24/10/2024 09:15</span>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded font-label-sm text-label-sm bg-secondary-container/20 text-secondary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Solucionado</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors" title="Ver detalle">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-surface-variant transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-variant transition-colors" onclick="openDeleteModal('INC-005')" title="Eliminar">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 6 -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors group">
+<td class="py-3 px-4 text-center">
+<input class="row-checkbox w-3.5 h-3.5 rounded bg-surface-container text-primary cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-3 px-3">
+<a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-1" href="#">
+                INC-006
+                <span class="material-symbols-outlined text-[12px] opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</a>
+</td>
+<td class="py-3 px-4">
+<div class="font-body-md text-body-md text-on-surface font-medium max-w-sm truncate">
+                Certificado SSL vencido en portal de clientes secundario
+              </div>
+<span class="font-label-sm text-label-sm text-outline">Dominio: portal-stage.corp.net</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">person</span>
+<div>
+<div class="text-on-surface font-body-sm text-body-sm font-semibold">Mónica Arrieta</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">DevOps</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">more_horiz</span>
+<span class="font-label-sm text-label-sm">Otro</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm bg-primary/20 text-primary font-bold uppercase tracking-wider">
+                Baja
+              </span>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">23/10/2024 18:00</span>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded font-label-sm text-label-sm bg-secondary-container/20 text-secondary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Solucionado</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors" title="Ver detalle">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-surface-variant transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-variant transition-colors" onclick="openDeleteModal('INC-006')" title="Eliminar">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 7 -->
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-3 px-4 text-center">
+<input class="row-checkbox w-3.5 h-3.5 rounded bg-surface-container text-primary cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-3 px-3">
+<a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-1" href="#">
+                INC-007
+                <span class="material-symbols-outlined text-[12px] opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</a>
+</td>
+<td class="py-3 px-4">
+<div class="font-body-md text-body-md text-on-surface font-medium max-w-sm truncate">
+                Acceso sospechoso desde geolocalización inusual (Rusia)
+              </div>
+<span class="font-label-sm text-label-sm text-tertiary">MFA Push Rechazado | Cuenta Bloqueada</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">person</span>
+<div>
+<div class="text-on-surface font-body-sm text-body-sm font-semibold">Javier Peña</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Logística</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-tertiary">vpn_lock</span>
+<span class="font-label-sm text-label-sm">Acceso no autorizado</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/30 text-tertiary font-bold uppercase tracking-wider">
+                Alta
+              </span>
+</td>
+<td class="py-3 px-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">23/10/2024 16:40</span>
+</td>
+<td class="py-3 px-3">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded font-label-sm text-label-sm bg-primary-container/15 text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>En proceso</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors" title="Ver detalle">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-surface-variant transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-variant transition-colors" onclick="openDeleteModal('INC-007')" title="Eliminar">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer & Professional Pagination Bar -->
+<div class="p-space-md bg-surface-container-lowest flex flex-wrap items-center justify-between gap-space-md">
+<!-- Records Count & Density Selector -->
+<div class="flex items-center gap-space-lg">
+<span class="font-label-md text-label-md text-on-surface-variant">
+          Mostrando <span class="font-bold text-on-surface">1 a 7</span> de <span class="font-bold text-on-surface">128</span> resultados
+        </span>
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-outline">Mostrar:</span>
+<select class="bg-surface-container text-on-surface font-label-sm text-label-sm rounded px-2 py-1 outline-none cursor-pointer">
+<option>10 por página</option>
+<option>25 por página</option>
+<option>50 por página</option>
+<option>100 por página</option>
+</select>
+</div>
+</div>
+<!-- Pagination Navigation Buttons -->
+<div class="flex items-center gap-1 select-none">
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-sm text-label-sm transition-colors opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+<span>Anterior</span>
+</button>
+<button class="px-3 py-1 rounded bg-primary-container text-on-primary font-label-sm text-label-sm font-bold shadow-sm">
+          1
+        </button>
+<button class="px-3 py-1 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm transition-colors">
+          2
+        </button>
+<button class="px-3 py-1 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm transition-colors">
+          3
+        </button>
+<span class="px-1 text-outline font-label-sm text-label-sm">...</span>
+<button class="px-3 py-1 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm transition-colors">
+          13
+        </button>
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm transition-colors">
+<span>Siguiente</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Operational Telemetry Side-Card / Visual Anchor -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="p-space-md bg-surface-container-low rounded-xl shadow-md flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">MTTR Promedio (SOC)</span>
+<span class="font-headline-md text-headline-md text-secondary font-bold mt-1">42 min</span>
+<span class="font-body-sm text-body-sm text-secondary-fixed-dim">↓ 14% vs. semana anterior</span>
+</div>
+<div class="w-16 h-10 flex items-end gap-1">
+<div class="w-3 bg-secondary/30 h-4 rounded-sm"></div>
+<div class="w-3 bg-secondary/50 h-7 rounded-sm"></div>
+<div class="w-3 bg-secondary/70 h-5 rounded-sm"></div>
+<div class="w-3 bg-secondary h-9 rounded-sm"></div>
+</div>
+</div>
+<div class="p-space-md bg-surface-container-low rounded-xl shadow-md flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Aislamiento Automático</span>
+<span class="font-headline-md text-headline-md text-primary font-bold mt-1">98.4%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">EDR Sentinel SentinelCore</span>
+</div>
+<div class="p-2.5 bg-primary-container/20 rounded-full text-primary">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+</div>
+<div class="p-space-md bg-surface-container-low rounded-xl shadow-md flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">SLA de Respuesta Crítica</span>
+<span class="font-headline-md text-headline-md text-tertiary font-bold mt-1">08m 12s</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Objetivo institucional: &lt;15m</span>
+</div>
+<div class="p-2.5 bg-tertiary-container/20 rounded-full text-tertiary">
+<span class="material-symbols-outlined text-[24px]">timer</span>
+</div>
+</div>
+</div>
+<!-- Interactive Destructive Containment & Deletion Modal -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-surface-container-lowest/80 backdrop-blur-sm hidden transition-opacity duration-200" id="delete-incident-modal">
+<div class="bg-surface-container-high rounded-xl max-w-lg w-full mx-4 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+<!-- Modal Header -->
+<div class="p-space-lg bg-surface-container-highest flex items-center gap-space-sm">
+<div class="p-2 bg-error-container text-error rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">warning</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Confirmación de Auditoría Crítica</h2>
+<span class="font-label-sm text-label-sm text-outline uppercase">Acción Destructiva / Modificación SIEM</span>
+</div>
+</div>
+<!-- Modal Body -->
+<div class="p-space-xl flex flex-col gap-space-md">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          ¿Eliminar incidente <span class="font-label-md text-label-md text-primary font-bold" id="modal-incident-id">INC-002</span>?
+          Esta acción requiere confirmación con registro de auditoría en SIEM y no podrá ser revertida de forma local.
+        </p>
+<div class="p-space-md bg-surface-container-lowest rounded-lg">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline mb-1">
+<span>OPERADOR:</span>
+<span class="text-on-surface">carlos.mendoza@corp.net</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline">
+<span>EVENT_LOG:</span>
+<span class="text-on-surface">SIEM_SEC_AUDIT_PURGE</span>
+</div>
+</div>
+</div>
+<!-- Modal Actions -->
+<div class="p-space-lg bg-surface-container-lowest flex items-center justify-end gap-space-sm">
+<button class="px-space-lg py-2 bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded font-body-md text-body-md font-semibold transition-colors" onclick="closeDeleteModal()">
+          Cancelar
+        </button>
+<button class="flex items-center gap-1.5 px-space-lg py-2 bg-error-container hover:bg-error text-on-error hover:text-on-error rounded font-body-md text-body-md font-bold transition-all shadow-md" onclick="confirmDeletion()">
+<span class="material-symbols-outlined text-[18px]">delete_forever</span>
+<span>Confirmar eliminación</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Tab Filtering Micro-interaction
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      filterTabs.forEach(t => {
+        t.classList.remove('bg-surface-container-high', 'text-primary', 'font-bold', 'shadow-sm');
+        t.classList.add('text-on-surface-variant');
+      });
+      tab.classList.add('bg-surface-container-high', 'text-primary', 'font-bold', 'shadow-sm');
+      tab.classList.remove('text-on-surface-variant');
+    });
+  });
+
+  // Table Select All functionality
+  const selectAll = document.getElementById('select-all-rows');
+  const rowCheckboxes = document.querySelectorAll('.row-checkbox');
+  if (selectAll) {
+    selectAll.addEventListener('change', (e) => {
+      rowCheckboxes.forEach(cb => cb.checked = e.target.checked);
+    });
+  }
+
+  // Refresh Table visual feedback
+  const btnRefresh = document.getElementById('btn-refresh');
+  const iconRefresh = document.getElementById('icon-refresh');
+  if (btnRefresh && iconRefresh) {
+    btnRefresh.addEventListener('click', () => {
+      iconRefresh.classList.add('rotate-180');
+      setTimeout(() => {
+        iconRefresh.classList.remove('rotate-180');
+      }, 500);
+    });
+  }
+
+  // Clear filters mock
+  const btnClearFilters = document.getElementById('btn-clear-filters');
+  const searchInput = document.getElementById('incident-search-input');
+  if (btnClearFilters && searchInput) {
+    btnClearFilters.addEventListener('click', () => {
+      searchInput.value = '';
+      if (filterTabs.length > 0) {
+        filterTabs[0].click();
+      }
+    });
+  }
+
+  // Modal Control Functions
+  function openDeleteModal(incidentId) {
+    const modal = document.getElementById('delete-incident-modal');
+    const label = document.getElementById('modal-incident-id');
+    if (modal && label) {
+      label.textContent = incidentId;
+      modal.classList.remove('hidden');
+    }
+  }
+
+  function closeDeleteModal() {
+    const modal = document.getElementById('delete-incident-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+    }
+  }
+
+  function confirmDeletion() {
+    const label = document.getElementById('modal-incident-id');
+    const targetId = label ? label.textContent : 'el incidente';
+    closeDeleteModal();
+    // Non-intrusive alert/log confirmation
+    console.info(`Auditoría SIEM: Registro de eliminación procesado para ${targetId}`);
+  }
+</script></main></div></body></html>
